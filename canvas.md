@@ -1,0 +1,14 @@
+# CP1 Canvas — Track B1 · Trợ lý Discord
+
+| # | Dòng | Nội dung |
+|---|---|---|
+| 1 | Track + đề | **B · Trợ lý Discord — B1: tối ưu trợ lý hiện có cho câu hỏi logistics có căn cứ**, lát cắt đầu tiên là hướng dẫn `daily standup` (nộp ở đâu, khi nào, theo nhóm hay cá nhân, cần điền gì). |
+| 2 | Job executor | **Một học viên khoá 4 trong giai đoạn onboarding/build phase**, đang ở Discord và chuẩn bị thực hiện hoặc nộp `daily standup`, cần biết quy định hiện hành để hoàn thành đúng hạn. |
+| 3 | Pain một câu | Học viên đang cố hoàn thành `daily standup` nhưng phải hỏi bot, đọc lại tin cũ hoặc dò nhiều kênh vì chưa biết nơi nộp, hạn nộp và cách điền; nếu nhận câu trả lời thiếu căn cứ hoặc sai deadline, học viên có thể bị blocked, mất XP/điểm danh hoặc phải hỏi lại TA. |
+| 4 | 1–2 bằng chứng đầu | **Mining:** trong `k4_messages.csv`, lọc `is_bot=False`, `mentions_bot=True`, nội dung chứa `daily` hoặc `standup` → **60 tin từ 32 tác giả** trên 3 ngày; các tin tập trung vào cách nộp, nơi nộp, hạn nộp và nội dung cần điền. **Khảo sát:** **10/10** phản hồi nói đã lên Discord tìm câu trả lời/hỗ trợ trong 7 ngày gần đây; trong 8 câu trả lời có thời lượng hợp lệ, **3/8** mất từ 30 phút trở lên. Baseline bản tin ngày có **7** mục ghi “chưa xác nhận đã xử lý”, trong đó **3** mục ghi phản hồi tự động chưa phải hướng dẫn chính thức. Chi tiết phương pháp, mã tin và log đầy đủ: `evidence/cp1-evidence-log.md`. |
+| 5 | Lát cắt MỘT CÂU | **Một học viên chuẩn bị nộp `daily standup` trên Discord · hỏi một câu về nơi/cách/hạn nộp · AI quyết định câu trả lời có truy được về nguồn chính thức hay không · trả lời ngắn kèm nguồn và bước tiếp theo, hoặc nói chưa đủ căn cứ và chuyển TA.** |
+| 6 | Automation + willing users | **Conditional:** AI tự trả lời khi intent rõ và tìm được nguồn chính thức; không đoán deadline, không trả lời thay cho quy định cá nhân khi thiếu dữ liệu, và chuyển TA khi mơ hồ/mâu thuẫn. Lý do: `daily standup` có 60 tin được tag bot; deadline sai có thể làm học viên bị blocked hoặc mất XP, nên chi phí sai cao hơn chi phí chuyển người. **Willing users ngoài nhóm:** [Họ tên 1 — mã học viên — điền trước khi nộp], [Họ tên 2 — mã học viên — điền trước khi nộp]. |
+| 7 | Phân công | **Anh** — product lead, canvas và spec; **Triệu** — mining/evidence và log khảo sát; **Minh** — retrieval/prompt và quy tắc nguồn chính thức; **Nam** — prototype/bot và AI call, golden set, validation và demo. |
+
+> Trước khi nộp CP1, thay các placeholder ở dòng 6–7 bằng họ tên/mã học viên thật. Không đưa dữ liệu liên hệ của willing users vào repo công khai nếu không cần thiết.
+
