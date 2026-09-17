@@ -4,14 +4,14 @@
 
 ## 👥 Thành viên nhóm & Phân công vai trò
 
-**Lớp:** 3B · **Phòng:** ____ · **Cụm:** ____ · **Track:** ____
+**Lớp:** 3B · **Phòng:** E402 · **Cụm:** C2 · **Track:** B
 
 | Họ và Tên | Mã Học Viên | Vai trò chính | Phần việc đảm nhiệm trong dự án |
 |---|---|---|---|
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Đinh Lệnh Tiến Anh | 2A202602928 | Nhóm trưởng |  |
+| Nguyễn Đức Triệu | 2A202602978 | Thành viên |  |
+| Vũ Hải Minh | 2A202602452 | Thành viên |  |
+| Nguyễn Hoàng Nam | 2A202602485 | Thành viên |  |
 
 > Nhóm copy nguyên file README này về repo của mình, rồi điền bảng trên. Cột **Phần việc đảm nhiệm** ghi càng cụ thể càng tốt.
 
