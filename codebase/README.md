@@ -4,7 +4,7 @@ Nhóm **K4-3B-E402-C2_Team5changlinhngulam** · Track **B1 — Tối ưu trợ l
 
 ## Mở thế nào
 
-Mở `prototype/index.html` bằng trình duyệt (double-click là được). Trang tĩnh HTML/CSS/JS
+Mở `codebase/index.html` bằng trình duyệt (double-click là được). Trang tĩnh HTML/CSS/JS
 thuần, **không cần server, không cần cài gì, không gọi mạng, không có khoá API**.
 
 Nếu nộp qua link: bật GitHub Pages cho repo → `https://<user>.github.io/<repo>/prototype/`.
