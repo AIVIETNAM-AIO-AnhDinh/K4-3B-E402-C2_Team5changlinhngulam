@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mock vs thật — Trợ lý Discord · daily standup</title>
+<link rel="stylesheet" href="assets_styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brandrow">
+      <div class="brand">Trợ lý Discord — lát cắt <span>daily standup</span></div>
+      <span class="pill cp">CP2 · luồng hoạt động</span>
+      <span class="pill mock">Mức prototype: MOCK</span>
+      <div class="sub">Nhóm K4-3B-E402-C2_Team5changlinhngulam · Track B1</div>
+    </div>
+    <div style="display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap">
+      <nav class="tabs" role="tablist">
+        <a role="tab" aria-selected="false" href="index.html">Bản mẫu bấm được</a>
+        <a role="tab" aria-selected="false" href="flow.html">Sơ đồ luồng</a>
+        <a role="tab" aria-selected="false" href="paths.html">4 đường đi</a>
+        <a role="tab" aria-selected="false" href="hax.html">Nguyên tắc HAX/PAIR</a>
+        <a role="tab" aria-selected="true" href="mock.html">Mock vs thật</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section class="pane on" id="p-mock">
+  <h2 class="sec">Mức prototype: <span class="pill mock">MOCK</span> — phần nào giả lập, phần nào sẽ chạy thật</h2>
+  <p class="lead">Theo guide §3.2: Mock = flow bấm được, data giả, AI thật ở lõi. Tại CP2 nhóm nộp phần “flow bấm được + data giả”; lời gọi AI thật vào <b>cổng tự tin</b> là việc của CP3 (hạn 16:00 18/9). Bảng này là phần tự khai — khai thiếu không bị trừ, giấu mới bị.</p>
+  <table>
+    <thead><tr><th style="width:22%">Thành phần</th><th style="width:13%">CP2</th><th style="width:33%">Đang chạy giả lập thế nào</th><th style="width:32%">CP3 sẽ thay bằng gì</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Giao diện Discord</td><td><span class="pill mock">mock</span></td><td>HTML/CSS tĩnh dựng lại khung kênh, tin nhắn, avatar. Không nối vào Discord.</td><td>Giữ nguyên bản mock cho demo; bot thật chạy trong server test của nhóm nếu kịp.</td></tr>
+      <tr><td class="k">① Phân loại intent</td><td><span class="pill mock">mock</span></td><td>Mỗi chip kịch bản gắn cứng một intent. Gõ tự do thì khớp từ khoá thô, không khớp thì nói thẳng là ngoài 6 kịch bản.</td><td>Một lời gọi LLM phân 5 nhãn intent, có log input/output lưu trong <code>eval/</code>.</td></tr>
+      <tr><td class="k">② Truy nguồn chính thức</td><td><span class="pill mock">mock</span></td><td>Sổ nguồn cứng 4 mục fixture, trích từ tin thật trong data pack (mã tin ghi kèm). Việc “tìm” là tra bảng ánh xạ sẵn.</td><td>Retrieval trên tập thông báo chính thức đã gom; nguồn bot-sinh bị loại bằng luật <code>is_bot</code>.</td></tr>
+      <tr><td class="k">③ Cổng tự tin</td><td><span class="pill mock">mock</span><br><span style="color:var(--tx3);font-size:12px">lõi của CP3</span></td><td>Kết quả gate viết sẵn theo từng kịch bản để nhìn được cả 4 đường trong 2 phút demo.</td><td><b>Lời gọi AI thật</b>: cho model nguồn đã truy + câu hỏi, bắt trả JSON <code>{đủ căn cứ | mâu thuẫn | không có}</code> kèm lý do; đây là quyết định AI trung tâm của lát cắt.</td></tr>
+      <tr><td class="k">④ Sinh câu trả lời</td><td><span class="pill mock">mock</span></td><td>Văn bản viết sẵn — cố tình giữ đúng khuôn: ≤3 dòng, có nguồn, có bước kế tiếp.</td><td>LLM sinh theo khuôn trên, chỉ được dùng nội dung nguồn đã truy; vi phạm khuôn tính là fail trong golden set.</td></tr>
+      <tr><td class="k">Chuyển TA / ticket</td><td><span class="pill mock">mock</span></td><td>Bấm “Gửi cho TA” chỉ hiện dòng xác nhận + mã ticket giả.</td><td>Ghi vào hàng đợi (file/sheet) để TA xem; vẫn giữ luật người bấm gửi.</td></tr>
+      <tr><td class="k">Feedback 👍👎 + log</td><td><span class="pill mock">mock</span></td><td>Lưu trong bộ nhớ trang, mất khi tải lại.</td><td>Ghi ra file log để đổ vào <code>eval/</code> làm case mới cho golden set.</td></tr>
+      <tr><td class="k">Dữ liệu người thật</td><td><span class="pill real">không dùng</span></td><td>Không có nội dung cá nhân trong trang. Chỉ dẫn mã tin (<code>M#####</code>) và trích tối đa 2 câu theo luật data pack.</td><td>Giữ nguyên luật này ở mọi mốc sau.</td></tr>
+    </tbody>
+  </table>
+  <h2 class="sec">Chỗ hổng bản mẫu này đã lộ ra (giá trị của CP2)</h2>
+  <table>
+    <thead><tr><th style="width:34%">Phát hiện khi dựng luồng</th><th>Xử lý</th></tr></thead>
+    <tbody>
+      <tr><td>Câu trả lời cũ của chính bot đang được học viên coi như nguồn chính thức (“mỗi người tự nộp” chỉ có trong tin bot).</td><td>Thêm bước loại nguồn bot-sinh vào ②, và hiện nguồn bị loại có gạch ngang để học viên thấy vì sao bot không dám khẳng định.</td></tr>
+      <tr><td>“Hạn nộp” thực ra là <b>hai mốc</b>: hạn được +XP (10h) và hạn còn được ghi nhận (hết ngày). Trả lời một mốc là sai một nửa dù trích đúng nguồn.</td><td>Đường 2 bắt buộc nêu cả hai mốc kèm ngày rồi mới hỏi lại; golden set sẽ có ≥2 case dạng này.</td></tr>
+      <tr><td>Nếu bot được phép tự tag TA thì tin nhắn của học viên có thể điều khiển bot spam <code>[@role]</code>.</td><td>Mọi tin chuyển TA đổi thành nháp, người bấm gửi.</td></tr>
+      <tr><td>👎 không có lý do thì không dùng lại được.</td><td>4 lý do ăn khớp 4 lớp lỗi ở spec §5, feedback đổ thẳng vào golden set.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  Bản mẫu CP2 · không gọi AI, không khoá API, không dữ liệu cá nhân. Nguồn hiển thị là fixture dựng từ tin đã ẩn danh trong <code>discord-pack</code>, dẫn theo mã tin và trích tối đa 2 câu theo luật dùng data pack.
+</footer>
+</div>
+
+</body>
+</html>
