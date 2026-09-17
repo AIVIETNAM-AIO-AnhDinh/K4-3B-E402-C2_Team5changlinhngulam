@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sơ đồ luồng — Trợ lý Discord · daily standup</title>
+<link rel="stylesheet" href="assets_styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brandrow">
+      <div class="brand">Trợ lý Discord — lát cắt <span>daily standup</span></div>
+      <span class="pill cp">CP2 · luồng hoạt động</span>
+      <span class="pill mock">Mức prototype: MOCK</span>
+      <div class="sub">Nhóm K4-3B-E402-C2_Team5changlinhngulam · Track B1</div>
+    </div>
+    <div style="display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap">
+      <nav class="tabs" role="tablist">
+        <a role="tab" aria-selected="false" href="index.html">Bản mẫu bấm được</a>
+        <a role="tab" aria-selected="true" href="flow.html">Sơ đồ luồng</a>
+        <a role="tab" aria-selected="false" href="paths.html">4 đường đi</a>
+        <a role="tab" aria-selected="false" href="hax.html">Nguyên tắc HAX/PAIR</a>
+        <a role="tab" aria-selected="false" href="mock.html">Mock vs thật</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section class="pane on" id="p-flow">
+  <h2 class="sec">Sơ đồ luồng — từ tin nhắn đến điểm kết thúc</h2>
+  <p class="lead">Một tin nhắn tag bot đi qua ba cửa: phân loại intent → truy nguồn chính thức → cổng tự tin. Cổng tự tin là chỗ duy nhất quyết định bot tự trả lời hay chuyển người. Đường 4 (sửa) gắn vào mọi câu trả lời, nên vẽ thành băng ngang dưới cùng.</p>
+  <div class="scroll">
+  <svg class="flow" viewBox="0 0 1180 880" role="img" aria-label="Sơ đồ luồng trợ lý Discord">
+    <defs>
+      <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#7d879f"/>
+      </marker>
+      <marker id="arw" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#e0a33e"/>
+      </marker>
+    </defs>
+    <style>
+      .bx{fill:#1f232d;stroke:#39405a;stroke-width:1.4;rx:11}
+      .t{fill:#e6e9f2;font:600 13.5px -apple-system,Segoe UI,Roboto,sans-serif}
+      .s{fill:#9aa3b8;font:12px -apple-system,Segoe UI,Roboto,sans-serif}
+      .h{fill:#cfd6ea;font:700 11px -apple-system,Segoe UI,Roboto,sans-serif;letter-spacing:.8px}
+      .ln{stroke:#7d879f;stroke-width:1.5;fill:none;marker-end:url(#ar)}
+      .lnw{stroke:#e0a33e;stroke-width:1.5;fill:none;marker-end:url(#arw);stroke-dasharray:5 4}
+      .lbl{fill:#7d879f;font:11.5px -apple-system,Segoe UI,Roboto,sans-serif}
+    </style>
+
+    <!-- start -->
+    <rect class="bx" x="440" y="16" width="300" height="46"/>
+    <text class="t" x="590" y="38" text-anchor="middle">Học viên tag @Trợ lý trong #hỏi-trợ-lý</text>
+    <text class="s" x="590" y="54" text-anchor="middle">điểm bắt đầu — không có form, không có nút riêng</text>
+    <path class="ln" d="M590,62 L590,96"/>
+
+    <!-- node 1 -->
+    <rect class="bx" x="410" y="98" width="360" height="52" style="stroke:#4f5a86"/>
+    <text class="h" x="590" y="118" text-anchor="middle">① PHÂN LOẠI INTENT</text>
+    <text class="s" x="590" y="136" text-anchor="middle">chào hỏi · hỏi bài · logistics · cá nhân/thẩm quyền</text>
+
+    <!-- fan to 4 -->
+    <path class="ln" d="M590,150 L590,166 L150,166 L150,196"/>
+    <path class="ln" d="M590,150 L590,166 L375,166 L375,196"/>
+    <path class="ln" d="M590,150 L590,196"/>
+    <path class="ln" d="M590,150 L590,166 L1040,166 L1040,196"/>
+
+    <rect class="bx" x="30" y="198" width="240" height="66"/>
+    <text class="t" x="150" y="220" text-anchor="middle">Chào hỏi / tin cụt</text>
+    <text class="s" x="150" y="238" text-anchor="middle">1 dòng + 3 câu hay gặp</text>
+    <text class="s" x="150" y="254" text-anchor="middle">→ kết: học viên biết hỏi gì</text>
+
+    <rect class="bx" x="285" y="198" width="180" height="66"/>
+    <text class="t" x="375" y="220" text-anchor="middle">Hỏi bài</text>
+    <text class="s" x="375" y="238" text-anchor="middle">ngoài lát cắt CP2:</text>
+    <text class="s" x="375" y="254" text-anchor="middle">trả lời ngắn, không gắn nguồn</text>
+
+    <rect class="bx" x="500" y="198" width="180" height="66" style="stroke:#4dd0c1"/>
+    <text class="t" x="590" y="228" text-anchor="middle">Logistics</text>
+    <text class="s" x="590" y="246" text-anchor="middle">daily standup</text>
+
+    <rect class="bx" x="905" y="198" width="270" height="66" style="stroke:#e0685f"/>
+    <text class="t" x="1040" y="220" text-anchor="middle">Cá nhân / ngoài thẩm quyền</text>
+    <text class="s" x="1040" y="238" text-anchor="middle">“điểm danh của tôi”, “XP của tôi”</text>
+    <text class="s" x="1040" y="254" text-anchor="middle">→ từ chối + <tspan style="fill:#cfd6ea">/ticket create</tspan> + chuyển TA</text>
+
+    <path class="ln" d="M590,264 L590,300"/>
+
+    <!-- node 2 -->
+    <rect class="bx" x="400" y="302" width="380" height="66" style="stroke:#4f5a86"/>
+    <text class="h" x="590" y="322" text-anchor="middle">② TRUY NGUỒN CHÍNH THỨC</text>
+    <text class="s" x="590" y="340" text-anchor="middle">chỉ sổ tay + thông báo ghim của BTC/Mod</text>
+    <text class="s" x="590" y="356" text-anchor="middle">loại bỏ: câu trả lời cũ của bot · tin của học viên khác</text>
+    <path class="ln" d="M590,368 L590,400"/>
+
+    <!-- node 3 -->
+    <rect class="bx" x="430" y="402" width="320" height="62" style="stroke:#e0a33e"/>
+    <text class="h" x="590" y="422" text-anchor="middle">③ CỔNG TỰ TIN</text>
+    <text class="s" x="590" y="440" text-anchor="middle">đủ căn cứ? · mâu thuẫn? · không có gì?</text>
+    <text class="s" x="590" y="456" text-anchor="middle">đây là quyết định AI của lát cắt</text>
+
+    <!-- fan to 3 paths -->
+    <path class="ln" d="M590,464 L590,486 L200,486 L200,516"/>
+    <path class="ln" d="M590,464 L590,516"/>
+    <path class="ln" d="M590,464 L590,486 L985,486 L985,516"/>
+    <text class="lbl" x="330" y="480" text-anchor="middle">≥1 nguồn, không mâu thuẫn</text>
+    <text class="lbl" x="600" y="480" text-anchor="start">2 nguồn lệch nhau / thiếu ngày</text>
+    <text class="lbl" x="880" y="480" text-anchor="middle">0 nguồn</text>
+
+    <rect class="bx" x="60" y="518" width="280" height="92" style="stroke:#3fb27f"/>
+    <text class="h" x="200" y="540" text-anchor="middle" style="fill:#9ff0d4">ĐƯỜNG 1 · HAPPY</text>
+    <text class="s" x="200" y="560" text-anchor="middle">trả lời ≤3 dòng, đúng cỡ câu hỏi</text>
+    <text class="s" x="200" y="577" text-anchor="middle">+ trích nguồn bấm xem được</text>
+    <text class="s" x="200" y="594" text-anchor="middle">+ một bước kế tiếp cụ thể</text>
+
+    <rect class="bx" x="440" y="518" width="300" height="92" style="stroke:#e0a33e"/>
+    <text class="h" x="590" y="540" text-anchor="middle" style="fill:#ffdda6">ĐƯỜNG 2 · THIẾU TỰ TIN</text>
+    <text class="s" x="590" y="560" text-anchor="middle">nêu cả hai mốc kèm ngày, không chọn hộ</text>
+    <text class="s" x="590" y="577" text-anchor="middle">hỏi lại đúng MỘT câu thu hẹp</text>
+    <text class="s" x="590" y="594" text-anchor="middle">(G10 — thu hẹp phạm vi khi nghi ngờ)</text>
+
+    <rect class="bx" x="845" y="518" width="290" height="92" style="stroke:#e0685f"/>
+    <text class="h" x="990" y="540" text-anchor="middle" style="fill:#ffc4bd">ĐƯỜNG 3 · KHÔNG CĂN CỨ</text>
+    <text class="s" x="990" y="560" text-anchor="middle">nói thẳng “mình không có nguồn”</text>
+    <text class="s" x="990" y="577" text-anchor="middle">soạn sẵn tin cho TA — người bấm gửi</text>
+    <text class="s" x="990" y="594" text-anchor="middle">bot không tự tag ai</text>
+
+    <path class="ln" d="M200,610 L200,646"/>
+    <path class="ln" d="M590,610 L590,646"/>
+    <path class="ln" d="M990,610 L990,646"/>
+
+    <rect class="bx" x="60" y="648" width="280" height="46"/>
+    <text class="t" x="200" y="670" text-anchor="middle">Kết: học viên nộp đúng chỗ, đúng giờ</text>
+    <text class="s" x="200" y="686" text-anchor="middle">luồng đóng tại đây</text>
+
+    <rect class="bx" x="440" y="648" width="300" height="46"/>
+    <text class="t" x="590" y="670" text-anchor="middle">Học viên chọn 1 nhánh</text>
+    <text class="s" x="590" y="686" text-anchor="middle">→ quay lại ③ với input đã rõ</text>
+
+    <rect class="bx" x="845" y="648" width="290" height="46"/>
+    <text class="t" x="990" y="670" text-anchor="middle">Kết: TA nhận việc trong thread</text>
+    <text class="s" x="990" y="686" text-anchor="middle">học viên không nhận thông tin sai</text>
+
+    <path class="lnw" d="M740,671 L790,671 M790,671 L790,433 L750,433"/>
+    <text class="lbl" x="800" y="430" text-anchor="start" style="fill:#e0a33e">vòng lại</text>
+
+    <!-- correction band -->
+    <rect class="bx" x="60" y="740" width="1075" height="104" style="stroke:#7a8cff;fill:#1a1e2c"/>
+    <text class="h" x="90" y="766" style="fill:#c3cbff">ĐƯỜNG 4 · SỬA — gắn vào MỌI câu trả lời, kể cả câu đúng</text>
+    <text class="s" x="90" y="788">👎 “sai chỗ nào?” (chọn lý do: sai hạn · sai nơi nộp · dài quá · không đúng câu mình hỏi)  →  câu trả lời bị gỡ nhãn “có căn cứ”, đẩy vào hàng đợi TA, ghi 1 dòng vào log eval.</text>
+    <text class="s" x="90" y="808">“Sửa câu hỏi” đưa nguyên văn câu cũ trở lại ô nhập để học viên sửa và hỏi lại — không phải gõ lại từ đầu.</text>
+    <text class="s" x="90" y="828">“Hỏi TA luôn” luôn hiện sẵn: học viên bỏ qua bot bất cứ lúc nào, không bị chặn flow (G8 · G9 · G15).</text>
+    <path class="lnw" d="M200,694 L200,740"/>
+    <path class="lnw" d="M590,694 L590,740"/>
+    <path class="lnw" d="M990,694 L990,740"/>
+  </svg>
+  </div>
+  <div class="legend">
+    <span><i class="sw" style="background:#3fb27f"></i> đường 1 · happy</span>
+    <span><i class="sw" style="background:#e0a33e"></i> đường 2 · thiếu tự tin</span>
+    <span><i class="sw" style="background:#e0685f"></i> đường 3 · không căn cứ / ngoài thẩm quyền</span>
+    <span><i class="sw" style="background:#7a8cff"></i> đường 4 · sửa</span>
+  </div>
+</section>
+
+<footer>
+  Bản mẫu CP2 · không gọi AI, không khoá API, không dữ liệu cá nhân. Nguồn hiển thị là fixture dựng từ tin đã ẩn danh trong <code>discord-pack</code>, dẫn theo mã tin và trích tối đa 2 câu theo luật dùng data pack.
+</footer>
+</div>
+
+</body>
+</html>
