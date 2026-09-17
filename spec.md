@@ -60,7 +60,7 @@ Sẽ xây golden set tối thiểu 20 case ở CP3–CP4, có case thường và
 
 ## §8. Phân công & kế hoạch
 
-- **Phân công:** Anh — product lead, canvas và spec; [Tên thành viên 2] — mining/evidence; [Tên thành viên 3] — retrieval/prompt; [Tên thành viên 4] — prototype/bot; [Tên thành viên 5] — eval, validation và demo.
+- **Phân công:** Đinh Lệnh Tiến Anh — product lead, canvas và spec; Nguyễn Đức Triệu — mining/evidence và log khảo sát; Vũ Hải Minh — retrieval/prompt và quy tắc nguồn chính thức; Nguyễn Hoàng Nam — prototype/bot, golden set, validation và demo.
 - **Willing users:** [Họ tên 1 — mã học viên — điền trước khi nộp], [Họ tên 2 — mã học viên — điền trước khi nộp]. Có thể bổ sung người thứ ba dự phòng nếu nhóm có.
 - **Kế hoạch validation:** sau CP3, giao một task theo outcome “hãy tìm cách nộp daily standup đúng hạn”, quan sát người thử tự làm, ghi quote nguyên văn và thay đổi vào `validation/`/§9.
 
