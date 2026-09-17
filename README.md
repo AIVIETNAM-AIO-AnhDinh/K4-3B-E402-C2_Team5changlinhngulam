@@ -8,10 +8,10 @@
 
 | Họ và Tên | Mã Học Viên | Vai trò chính | Phần việc đảm nhiệm trong dự án |
 |---|---|---|---|
-| Đinh Lệnh Tiến Anh | 2A202602928 | Nhóm trưởng |  |
-| Nguyễn Đức Triệu | 2A202602978 | Thành viên |  |
-| Vũ Hải Minh | 2A202602452 | Thành viên |  |
-| Nguyễn Hoàng Nam | 2A202602485 | Thành viên |  |
+| Đinh Lệnh Tiến Anh | 2A202602928 | Nhóm trưởng | product lead, canvas và spec |
+| Nguyễn Đức Triệu | 2A202602978 | Thành viên | mining/evidence và log khảo sát |
+| Vũ Hải Minh | 2A202602452 | Thành viên | retrieval/prompt và quy tắc nguồn chính thức |
+| Nguyễn Hoàng Nam | 2A202602485 | Thành viên | prototype/bot, golden set, validation và demo |
 
 > Nhóm copy nguyên file README này về repo của mình, rồi điền bảng trên. Cột **Phần việc đảm nhiệm** ghi càng cụ thể càng tốt.
 
