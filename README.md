@@ -15,6 +15,19 @@
 
 > Nhóm copy nguyên file README này về repo của mình, rồi điền bảng trên. Cột **Phần việc đảm nhiệm** ghi càng cụ thể càng tốt.
 
+## 📦 Bài nộp của nhóm
+
+| Mốc | Nộp gì | Ở đâu trong repo |
+|---|---|---|
+| CP1 | Canvas 7 dòng + evidence log | `canvas.md` · `evidence/cp1-evidence-log.md` |
+| **CP2** | **Bản mẫu bấm được + sơ đồ luồng** — mở `prototype/index.html` bằng trình duyệt | `prototype/` · thiết kế đã cập nhật vào `spec.md` **§4** và **§6** |
+| CP3–CP5 | *(đang làm)* | |
+
+**Bản mẫu CP2:** trang tĩnh HTML/CSS/JS, không cần cài gì, không gọi mạng, không khoá API.
+Gồm 5 tab: bản mẫu bấm được (6 kịch bản) · sơ đồ luồng · 4 đường đi trải nghiệm ·
+bảng nguyên tắc HAX/PAIR kèm vị trí áp dụng · bảng mock vs thật.
+Hướng dẫn demo 2 phút: `prototype/README.md`.
+
 - Thời lượng: **39 giờ** từ phát đề đến thuyết trình (ca 3B) — LAB 5 (phát đề + build) · LEC 6 (tiếp tục build theo ca) · LAB 6 (vòng thi)
 - Nhóm: **3-4 người** · thi theo phòng (E403 / E402), chia cụm rồi chung kết phòng — xem *Thể thức thi*
 - **Chia cụm theo bàn**, không cần chung đề tài. Chủ đề tự chọn trong khuôn khổ đề bài
