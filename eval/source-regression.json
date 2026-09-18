@@ -1,0 +1,15 @@
+{
+  "schema": "source-regression-v1",
+  "purpose": "Regression cases mined from the Discord pack after the first-fix validation",
+  "cases": [
+    {"id":"R01","message_id":"M60122","input":"cho mình hỏi cái daily-standup này làm ở đâu vậy nhỉ, làm thế nào","expected_source_ids":["SRC-01"],"expected_decision":"answer"},
+    {"id":"R02","message_id":"M54695","input":"[HV] gì vào biến yesterday and today của Daily-standup","expected_source_ids":["SRC-01"],"expected_decision":"answer"},
+    {"id":"R03","message_id":"M91027","input":"viết /daily-standup ở nhóm nào hay kênh nào nhỉ","expected_source_ids":["SRC-01"],"expected_decision":"answer"},
+    {"id":"R04","message_id":"M80778","input":"Là ngày nào cũng gửi /daily-standup hả, trước 23h59 ngày đó phải không","expected_source_ids":["SRC-02","SRC-03"],"expected_decision":"ask_clarify"},
+    {"id":"R05","message_id":"M65205","input":"nộp ở đâu cơ, phần này mình đánh lệnh /daily-standup rồi mà ko được","expected_source_ids":["SRC-01"],"expected_decision":"answer"},
+    {"id":"R06","message_id":"M04103","input":"cách tạo ticket","expected_source_ids":["SRC-05"],"expected_decision":"answer"},
+    {"id":"R07","message_id":"M22827","input":"daily standup bắt đầu từ ngày nào?","expected_source_ids":["SRC-06"],"expected_decision":"answer"},
+    {"id":"R08","message_id":"M77407","input":"daily standup là tất cả thành viên trong nhóm nộp hay chỉ 1 thành viên nộp","expected_source_ids":[],"expected_decision":"refer_ta"},
+    {"id":"R09","message_id":"M61254","input":"hôm qua mình điểm danh chưa?","expected_source_ids":[],"expected_decision":"refuse_private"}
+  ]
+}

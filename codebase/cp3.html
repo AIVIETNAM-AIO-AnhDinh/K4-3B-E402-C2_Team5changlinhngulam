@@ -43,10 +43,12 @@
 </main>
 <script>
 const SOURCES=[
-  {id:'SRC-01',kind:'official_handbook',title:'Sổ tay học viên — Daily Standup',facts:'Dùng /daily-standup trong forum thread riêng của team. Form có yesterday, today và blockers; blockers là tuỳ chọn.'},
+  {id:'SRC-01',kind:'official_handbook',title:'Sổ tay học viên — Daily Standup',facts:'Dùng /daily-standup trong forum thread riêng của team. Form có yesterday (việc đã làm hôm qua), today (việc dự định làm hôm nay) và blockers (khó khăn, tuỳ chọn). Mẫu minh hoạ cấu trúc: Yesterday: …; Today: …; Blockers: Không có hoặc nêu vướng mắc. Pack chưa có căn cứ chính thức để kết luận một người đại diện hay từng thành viên phải nộp.'},
   {id:'SRC-02',kind:'official_announcement',title:'Khung giờ cộng XP',facts:'Nộp từ 0h đến 10h sáng để được cộng XP. Nộp sau 10h vẫn được ghi nhận nhưng không được cộng XP.'},
   {id:'SRC-03',kind:'command_description',title:'Mô tả lệnh /daily-standup',facts:'Mô tả lệnh ghi hạn là hết hôm nay nhưng không có ngày cập nhật; đây là nguồn có khả năng mâu thuẫn với SRC-02 khi hỏi một mốc cụ thể.'},
   {id:'SRC-04',kind:'official_onboarding',title:'Thông báo onboarding',facts:'Thông báo về onboarding, lập đội và ticket; không quy định ai phải nộp daily standup thay ai.'},
+  {id:'SRC-05',kind:'official_support_route',title:'Cách tạo ticket hỗ trợ',facts:'Dùng command /ticket create để yêu cầu BTC/Mod hỗ trợ. Bot chỉ hướng dẫn lệnh, không tự tạo ticket hoặc mở quyền.'},
+  {id:'SRC-06',kind:'official_announcement_snapshot',title:'Mốc bắt đầu ghi nhận XP',facts:'Snapshot 12–14/09 ghi ngày bắt đầu ghi nhận XP cho daily standup là 14/9; đây là mốc lịch sử cần xác minh lại nếu hỏi chính sách hiện hành.'},
   {id:'NOT-01',kind:'bot_generated',title:'Câu trả lời cũ của bot',facts:'Nói mỗi thành viên tự nộp nhưng là tin is_bot=true, không được dùng làm nguồn chính thức.'}
 ];
 const CASES=[

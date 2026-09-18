@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bản mẫu CP2 — Trợ lý Discord · daily standup</title>
+<title>CP5 · Dùng thử willing user — Trợ lý Discord · daily standup</title>
 <style>
 :root{
   --bg:#12141a; --bg2:#181b23; --bg3:#1f232d; --line:#2b3040;
@@ -50,6 +50,46 @@ nav.tabs button[aria-selected="true"],nav.tabs a[aria-selected="true"]{color:var
 
 /* ---------- layout ---------- */
 .panelnote{color:var(--tx2);font-size:13.5px;margin:16px 0 12px}
+.validation{padding:15px 16px;margin:16px 0 14px;border-color:#35406b;background:linear-gradient(135deg,#1b2031,#181b23)}
+.validation-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.eyebrow{color:#aeb9ff;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase}
+.validation h2{font-size:18px;margin:2px 0 3px}
+.validation p{margin:0;color:var(--tx2);font-size:13.5px}
+.validation-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:12px;margin-top:13px}
+.taskbox,.presenterbox{border:1px solid var(--line);border-radius:10px;background:#151923;padding:11px 13px}
+.taskbox h3,.presenterbox h3{font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--tx2);margin:0 0 6px}
+.taskbox strong{color:#f1f3ff}
+.taskbox ol{margin:8px 0 0;padding-left:20px;color:var(--tx2);font-size:13px}
+.taskbox li{margin:3px 0}
+.ai-live{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;color:#a8ecd9;font-size:12px}
+.ai-live .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block}
+.ai-live.warn{color:#ffdda6}.ai-live.warn .dot{background:var(--warn)}
+.ai-live.bad{color:#ffc4bd}.ai-live.bad .dot{background:var(--bad)}
+.history-count{color:var(--tx3)}
+.session{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:11px}
+.session .state{color:var(--tx2);font-size:12px;min-width:110px}
+.timer{font-variant-numeric:tabular-nums;color:#a8ecd9;font-weight:800;letter-spacing:.5px}
+.presenterbox{background:#171a27;border-color:#40336b}
+.presenterbox summary{cursor:pointer;color:#d9d1ff;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+.presenterbox p{font-size:12.5px}
+.presenterbox .demo-line{display:flex;gap:7px;align-items:baseline;margin-top:7px;font-size:12.5px}
+.demo-tag{display:inline-block;color:#d9d1ff;background:#2b2350;border:1px solid #554493;border-radius:5px;padding:1px 5px;font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
+.chip-demo-tag{display:none}
+body.presenter .chip-demo-tag{display:inline-block}
+.feedback{margin-top:13px;border-top:1px solid var(--line);padding-top:13px}
+.feedback[hidden]{display:none}
+.feedback h3{font-size:15px;margin:0 0 3px}
+.feedback .lead{margin:0 0 10px;color:var(--tx2);font-size:13px}
+.feedback-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.feedback label{display:grid;gap:4px;color:var(--tx2);font-size:12px}
+.feedback select,.feedback textarea{width:100%;background:var(--bg3);border:1px solid var(--line);border-radius:7px;color:var(--tx);padding:8px;font:inherit;font-size:13px}
+.feedback textarea{min-height:68px;resize:vertical}
+.feedback .wide{grid-column:1/-1}
+.feedback .consent{display:flex;grid-column:1/-1;align-items:flex-start;gap:7px}
+.feedback .consent input{margin-top:3px;accent-color:var(--acc)}
+.feedback-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:9px}
+.feedback-status{color:var(--tx2);font-size:12px}
+@media(max-width:760px){.validation-grid,.feedback-grid{grid-template-columns:1fr}.feedback .wide{grid-column:auto}}
 .stage{display:grid;grid-template-columns:186px minmax(0,1fr) 324px;gap:14px;align-items:start}
 @media (max-width:1100px){.stage{grid-template-columns:1fr}}
 .card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r)}
@@ -199,8 +239,8 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:v
   <div class="wrap">
     <div class="brandrow">
       <div class="brand">Trợ lý Discord — lát cắt <span>daily standup</span></div>
-      <span class="pill cp">CP2 · luồng hoạt động</span>
-      <span class="pill mock">Mức prototype: MOCK</span>
+      <span class="pill cp">CP5 · willing user</span>
+      <span class="pill mock">UI test · local only</span>
       <div class="sub">Nhóm K4-3B-E402-C2_Team5changlinhngulam · Track B1</div>
     </div>
     <div style="display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap">
@@ -218,7 +258,64 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:v
 <div class="wrap">
 
 <section class="pane on" id="p-proto">
-  <p class="panelnote">Bấm một câu hỏi ở dưới khung chat để đi hết một lượt. Cột phải là <b>hộp máy</b> — cho thấy bot quyết định thế nào, không phải chỉ thấy câu trả lời. 6 kịch bản phủ đủ 4 đường đi trải nghiệm.</p>
+  <section class="card validation" aria-labelledby="validation-title">
+    <div class="validation-head">
+      <div>
+        <span class="eyebrow">CP5 · phiên dùng thử 10 phút</span>
+        <h2 id="validation-title">Hãy tự tìm cách nộp daily standup đúng hạn</h2>
+        <p>Người thử tự cầm chuột. Người quan sát không giải thích nút; chỉ ghi lại chỗ do dự, câu nói nguyên văn và kết quả.</p>
+        <div class="ai-live" id="aiStatus"><span class="dot"></span><b>AI thật · gpt-4o-mini</b><span>đang chờ local backend</span><span class="history-count" id="historyCount">history 0/8</span></div>
+      </div>
+      <div class="session" aria-live="polite">
+        <span class="state" id="sessionState">Chưa bắt đầu</span>
+        <span class="timer" id="sessionTimer">00:00</span>
+        <button class="btn primary" id="startSession">Bắt đầu phiên</button>
+        <button class="btn" id="endSession" disabled>Kết thúc & phản hồi</button>
+      </div>
+    </div>
+    <div class="validation-grid">
+      <div class="taskbox">
+        <h3>Nhiệm vụ nói nguyên văn cho willing user</h3>
+        <strong>“Bạn hãy dùng giao diện này để tìm cách nộp daily standup đúng hạn. Khi thấy đã biết phải làm gì, hãy nói cho tôi biết bước tiếp theo.”</strong>
+        <ol>
+          <li>Không đưa sẵn câu trả lời hoặc chỉ nút cần bấm.</li>
+          <li>Cho người thử tự khám phá trong tối đa 5 phút.</li>
+          <li>Sau đó hỏi: “Điều gì khó hiểu nhất?” và “Bạn có tin câu trả lời không — vì sao?”.</li>
+        </ol>
+      </div>
+      <details class="presenterbox" id="presenterDetails">
+        <summary>Dành cho thuyết trình · mở sau phiên</summary>
+        <p>Hai case được đánh dấu trong các chip bên dưới; chỉ dùng chúng khi demo, không dùng để dẫn dắt willing user.</p>
+        <div class="demo-line"><span class="demo-tag">Case chuẩn</span><span>① Nơi nộp + cú pháp</span></div>
+        <div class="demo-line"><span class="demo-tag">Case khó</span><span>② Hai deadline lệch nhau</span></div>
+      </details>
+    </div>
+    <div class="feedback" id="feedback" hidden>
+      <h3>Phản hồi sau phiên</h3>
+      <p class="lead">Không ghi tên, mã học viên hay dữ liệu cá nhân. Chỉ tải JSON sau khi người thử đồng ý cho nhóm lưu phản hồi ẩn danh.</p>
+      <div class="feedback-grid">
+        <label>Kết quả task
+          <select id="feedbackOutcome"><option value="completed">Tự hoàn thành</option><option value="partial">Hoàn thành một phần</option><option value="blocked">Bị kẹt</option></select>
+        </label>
+        <label>Mức tin vào câu trả lời
+          <select id="feedbackTrust"><option value="yes">Có</option><option value="partial">Một phần</option><option value="no">Không</option></select>
+        </label>
+        <label>Nếu ngày mai bỏ tính năng này
+          <select id="feedbackDisappointment"><option value="very">Rất tiếc</option><option value="somewhat">Hơi tiếc</option><option value="none">Không sao</option></select>
+        </label>
+        <label class="wide">Điều khó hiểu/khó chịu nhất hoặc câu nói nguyên văn
+          <textarea id="feedbackQuote" placeholder="Ghi nguyên văn, không thêm tên người thử..."></textarea>
+        </label>
+        <label class="consent"><input type="checkbox" id="feedbackConsent"> <span>Người thử đồng ý cho nhóm lưu phản hồi ẩn danh này trong hồ sơ validation.</span></label>
+      </div>
+      <div class="feedback-actions">
+        <button class="btn primary" id="downloadFeedback" disabled>Tải feedback ẩn danh</button>
+        <span class="feedback-status" id="feedbackStatus">Chưa lưu feedback.</span>
+      </div>
+    </div>
+  </section>
+
+  <p class="panelnote">Bắt đầu phiên ở trên rồi để người thử tự khám phá. Cột phải là <b>hộp máy</b> — cho thấy bot quyết định thế nào, không phải chỉ thấy câu trả lời. 6 kịch bản phủ đủ 4 đường đi trải nghiệm.</p>
 
   <div class="stage">
     <!-- rail -->
@@ -258,7 +355,7 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:v
           <input id="inp" placeholder="Nhắn cho #hỏi-trợ-lý  (bản mẫu: gõ tự do cũng được, xem điều gì xảy ra)" autocomplete="off">
           <button class="btn primary" id="send">Gửi</button>
         </div>
-        <div class="hint">Bản mẫu CP2 · không gọi AI thật · nguồn là fixture 4 tài liệu chính thức (xem cột phải)</div>
+        <div class="hint">CP5 · AI thật qua local backend · key không vào browser · history gần nhất được gửi kèm để xử lý câu hỏi nối tiếp</div>
       </div>
     </section>
 
@@ -282,7 +379,7 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:v
 </section>
 
 <footer>
-  Bản mẫu CP2 · không gọi AI, không khoá API, không dữ liệu cá nhân. Nguồn hiển thị là fixture dựng từ tin đã ẩn danh trong <code>data</code>, dẫn theo mã tin và trích tối đa 2 câu theo luật dùng data pack.
+  CP5 · UI dùng thử willing user · OpenAI thật qua local backend, API key không vào browser. Không có hành động Discord tự động; feedback chỉ được tải cục bộ sau khi người thử đồng ý. Nguồn được truy từ fixture đã ẩn danh trong <code>eval/golden-set.json</code>.
 </footer>
 </div>
 
@@ -301,8 +398,8 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:v
 const SRC = {
   'SRC-01':{t:'Sổ tay học viên — mục Daily Standup',
     m:'Ghim ở kênh tài liệu · 13/09 15:30 · dựng từ tin M76498',
-    q:'Mỗi thành viên dùng lệnh /daily-standup ngay trong forum thread riêng của team.\nBa trường của lệnh: yesterday (việc hôm qua), today (việc hôm nay), blockers (khó khăn — tuỳ chọn).',
-    w:'Nguồn chính thức: tài liệu do BTC phát hành và ghim. Dùng được cho câu hỏi nơi nộp / cú pháp / nội dung.'},
+    q:'Dùng /daily-standup trong forum thread riêng của team.\nBa trường: yesterday (việc đã làm hôm qua), today (việc dự định làm hôm nay), blockers (khó khăn — tuỳ chọn). Mẫu minh hoạ cấu trúc: Yesterday: … · Today: … · Blockers: Không có hoặc nêu vướng mắc.',
+    w:'Nguồn chính thức: tài liệu do BTC phát hành và ghim. Mẫu chỉ minh hoạ cấu trúc, không phải nội dung bắt buộc; pack chưa có căn cứ chính thức để kết luận một người đại diện hay từng thành viên phải nộp.'},
   'SRC-02':{t:'Thông báo khung giờ cộng XP',
     m:'Kênh hỏi–đáp · 14/09 15:46 · dựng từ tin M78917 (Mod đăng)',
     q:'Khung giờ daily standup để được cộng XP: 0h–10h sáng. Nộp trễ vẫn ghi nhận nhưng không +XP.',
@@ -315,6 +412,14 @@ const SRC = {
     m:'Kênh thông báo · 12/09 18:02 · dựng từ tin M49744',
     q:'Hoàn thiện hồ sơ trên nền tảng, lập đội và bắt đầu 6 tuần thực chiến…',
     w:'Có trong sổ nguồn nhưng KHÔNG nhắc ai phải nộp daily standup — dùng để minh hoạ “đã tìm nhưng không thấy căn cứ”.'},
+  'SRC-05':{t:'Đường hỗ trợ — tạo ticket',
+    m:'Thông báo onboarding · M49744/M41530',
+    q:'Dùng command /ticket create để yêu cầu BTC/Mod hỗ trợ.',
+    w:'Bot chỉ hướng dẫn lệnh; không tự tạo ticket, mở quyền hoặc gửi tin thay người dùng.'},
+  'SRC-06':{t:'Mốc bắt đầu XP trong snapshot',
+    m:'Phản hồi Mod · 12/09 · M22827',
+    q:'Snapshot 12–14/09 ghi ngày bắt đầu nhận XP daily standup là 14/9.',
+    w:'Đây là dữ liệu lịch sử của pack, không trình bày như chính sách hiện hành nếu không xác minh lại.'},
   'NOT-01':{t:'Câu trả lời cũ của chính bot — KHÔNG phải nguồn',
     m:'Tin M92424, M17171 · 14/09 · is_bot = true',
     q:'“Mỗi cá nhân đều phải tự nộp báo cáo của riêng mình…”',
@@ -323,7 +428,7 @@ const SRC = {
 
 /* ---------------- kịch bản ---------------- */
 const SC = [
- {id:'s1', chip:'① Nộp daily standup ở đâu, gõ lệnh gì?', lane:'happy',
+ {id:'s1', chip:'① Nộp daily standup ở đâu, gõ lệnh gì?', demo:'case chuẩn', lane:'happy',
   user:'[@Trợ lý] mình nộp daily standup ở đâu thế, gõ lệnh gì?',
   glass:['logistics · daily-standup · <b>nơi nộp + cú pháp</b>','tìm thấy <b>SRC-01</b> · loại 2 tin bot-sinh','đủ căn cứ · 1 nguồn · không mâu thuẫn','<b>tự trả lời</b> ≤3 dòng + nguồn + bước kế'],
   conf:['hi','có căn cứ · 1 nguồn chính thức'],
@@ -332,7 +437,7 @@ const SC = [
         <p><b>Bước kế:</b> mở thread <code>#team-t015</code> → gõ <code>/daily-standup</code>.</p>`,
   srcs:['SRC-01'], excl:['NOT-01']},
 
- {id:'s2', chip:'② Hạn nộp mấy giờ? Tối qua gửi thì báo hết hạn', lane:'low',
+ {id:'s2', chip:'② Hạn nộp mấy giờ? Tối qua gửi thì báo hết hạn', demo:'case khó', lane:'low',
   user:'[@Trợ lý] hạn nộp daily standup là mấy giờ vậy? tối qua mình gửi thì nó báo hết hạn rồi',
   glass:['logistics · daily-standup · <b>hạn nộp</b>','tìm thấy <b>SRC-02</b> và <b>SRC-03</b> · <b>hai mốc lệch nhau</b>','⚠ chưa chắc · 2 nguồn nói 2 mốc khác nhau','<b>hỏi lại 1 câu</b> thu hẹp — không chọn hộ'],
   conf:['lo','chưa chắc · 2 nguồn nói 2 mốc khác nhau'],
@@ -401,8 +506,96 @@ const SC = [
 const feed = document.getElementById('feed');
 const chipsEl = document.getElementById('chips');
 let turn = 0;
-const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+let conversationHistory = [];
+let requestSequence = 0;
+let validationStartedAt = 0;
+let validationDuration = 0;
+let validationSessionId = '';
+let validationTimer = null;
+const esc = s => String(s ?? '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const clock = () => { const d=new Date(); return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2); };
+
+function setAiStatus(text, tone=''){
+  const el=document.getElementById('aiStatus');
+  el.className=`ai-live ${tone}`.trim();
+  el.innerHTML=`<span class="dot"></span><b>AI thật · gpt-4o-mini</b><span>${esc(text)}</span><span class="history-count" id="historyCount">history ${conversationHistory.length}/8</span>`;
+}
+
+function updateHistoryCount(){
+  const el=document.getElementById('historyCount');
+  if(el) el.textContent=`history ${conversationHistory.length}/8`;
+}
+
+function formatDuration(seconds){
+  const mm=String(Math.floor(seconds/60)).padStart(2,'0');
+  const ss=String(seconds%60).padStart(2,'0');
+  return `${mm}:${ss}`;
+}
+
+function updateValidationTimer(){
+  if(!validationStartedAt) return;
+  validationDuration=Math.max(0,Math.floor((Date.now()-validationStartedAt)/1000));
+  document.getElementById('sessionTimer').textContent=formatDuration(validationDuration);
+}
+
+function startValidationSession(){
+  validationStartedAt=Date.now(); validationDuration=0;
+  validationSessionId=`wu-${new Date().toISOString().replace(/[-:.TZ]/g,'').slice(0,14)}`;
+  clearInterval(validationTimer); validationTimer=setInterval(updateValidationTimer,1000);
+  document.getElementById('sessionState').textContent='Đang dùng thử';
+  document.getElementById('startSession').disabled=true;
+  document.getElementById('startSession').textContent='Đang chạy';
+  document.getElementById('endSession').disabled=false;
+  document.getElementById('feedback').hidden=true;
+  document.getElementById('feedbackQuote').value='';
+  document.getElementById('feedbackOutcome').value='completed';
+  document.getElementById('feedbackTrust').value='yes';
+  document.getElementById('feedbackDisappointment').value='very';
+  document.getElementById('feedbackConsent').checked=false;
+  document.getElementById('downloadFeedback').disabled=true;
+  document.getElementById('feedbackStatus').textContent='Chưa lưu feedback.';
+}
+
+function endValidationSession(){
+  if(!validationStartedAt) return;
+  updateValidationTimer(); clearInterval(validationTimer); validationTimer=null;
+  document.getElementById('sessionState').textContent='Đã kết thúc · chờ phản hồi';
+  document.getElementById('startSession').disabled=false;
+  document.getElementById('startSession').textContent='Bắt đầu phiên mới';
+  document.getElementById('endSession').disabled=true;
+  document.getElementById('feedback').hidden=false;
+  document.getElementById('feedback').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function downloadValidationFeedback(){
+  if(!validationSessionId || !document.getElementById('feedbackConsent').checked) return;
+  const payload={
+    schema:'cp5-willing-user-feedback-v1',
+    session_id:validationSessionId,
+    task:'Tự tìm cách nộp daily standup đúng hạn',
+    duration_seconds:validationDuration,
+    outcome:document.getElementById('feedbackOutcome').value,
+    trust:document.getElementById('feedbackTrust').value,
+    disappointment:document.getElementById('feedbackDisappointment').value,
+    quote_or_pain:document.getElementById('feedbackQuote').value.trim(),
+    turns:turn,
+    contains_personal_data:false,
+    consent_to_save:true,
+    captured_at:new Date().toISOString()
+  };
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`validation-${validationSessionId}.json`; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  document.getElementById('feedbackStatus').textContent='Đã tải feedback ẩn danh — hãy đưa file vào validation/ sau khi rà soát.';
+}
+
+document.getElementById('startSession').onclick=startValidationSession;
+document.getElementById('endSession').onclick=endValidationSession;
+document.getElementById('feedbackConsent').onchange=e=>{
+  document.getElementById('downloadFeedback').disabled=!e.target.checked;
+  document.getElementById('feedbackStatus').textContent=e.target.checked?'Có thể tải feedback ẩn danh.':'Chưa lưu feedback.';
+};
+document.getElementById('downloadFeedback').onclick=downloadValidationFeedback;
 
 function glass(steps){
   const keys=['① Phân loại intent','② Truy nguồn chính thức','③ Cổng tự tin','④ Hành động'];
@@ -440,7 +633,7 @@ function addUser(text){
   feed.appendChild(d); feed.scrollTop=feed.scrollHeight;
 }
 
-function addBot(cfg, scId){
+function addBot(cfg, scId, originalInput=''){
   const d=document.createElement('div');
   d.className='msg bot';
   const srcRow = (cfg.srcs&&cfg.srcs.length)||(cfg.excl&&cfg.excl.length)
@@ -490,10 +683,21 @@ function addBot(cfg, scId){
         <button class="btn ghost" data-go="skip">Thôi, để mình tự hỏi</button>
       </div>
       <div class="pin" style="top:-10px;right:8px" title="PAIR Feedback + Control: hành động có hậu quả (tag người khác) luôn do người bấm. Bot soạn, người duyệt.">PAIR</div>`;
-    dr.querySelector('[data-go="send"]').onclick=()=>{
+    const draftAction=dr.querySelector('[data-go="send"]');
+    dr.querySelector('h5').textContent='Nháp hỏi TA — chưa gửi';
+    draftAction.textContent='Sao chép nháp';
+    draftAction.onclick=async()=>{
+      const draftBody=dr.querySelector('div:nth-child(3)')?.textContent?.trim() || cfg.draft.body;
+      let copied=false;
+      try{
+        if(navigator.clipboard?.writeText){ await navigator.clipboard.writeText(draftBody); copied=true; }
+      }catch(_err){}
       dr.querySelector('.acts').remove();
       const n=document.createElement('div'); n.className='sys';
       n.innerHTML=`<b>✓ Đã chuyển cho TA</b> · ticket <code>K4-0917-${String(100+turn).slice(-3)}</code> · TA trả lời ngay trong thread này. Câu hỏi được ghi vào hàng đợi, không mất.`;
+      n.innerHTML=copied
+        ? '<b>✓ Đã sao chép nháp.</b> Bạn tự dán vào kênh TA; bot không tự gửi Discord.'
+        : '<b>✓ Nháp đã sẵn sàng.</b> Hãy tự sao chép và gửi vào kênh TA; bot không tự gửi Discord.';
       dr.appendChild(n); feed.scrollTop=feed.scrollHeight;
     };
     dr.querySelector('[data-go="edit"]').onclick=()=>{
@@ -538,7 +742,7 @@ function addBot(cfg, scId){
   };
   acts.querySelector('[data-a="edit"]').onclick=()=>{
     const inp=document.getElementById('inp');
-    inp.value = sc ? sc.user : '';
+    inp.value = sc ? sc.user : (originalInput || cfg.user || '');
     inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length);
     const n=document.createElement('div'); n.className='note';
     n.innerHTML='Câu hỏi cũ đã được đưa lại vào ô nhập ở dưới — sửa vài chữ rồi gửi lại, không phải gõ lại từ đầu.';
@@ -553,39 +757,95 @@ function addBot(cfg, scId){
   feed.scrollTop=feed.scrollHeight;
 }
 
-function run(sc){
+function outputToConfig(output, input){
+  const decision=String(output?.decision||'refer_ta');
+  const sourceIds=Array.isArray(output?.source_ids) ? output.source_ids.filter(id=>SRC[id] && !id.startsWith('NOT-')) : [];
+  const confMap={answer:['hi','có căn cứ · AI thật'],ask_clarify:['lo','chưa chắc · cần làm rõ'],refer_ta:['no','không có căn cứ · chuyển TA'],refuse_private:['blk','ngoài thẩm quyền · dữ liệu cá nhân'],split_and_refer:['lo','tách phần · chuyển TA'],out_of_scope:['blk','ngoài phạm vi daily standup']};
+  const conf=confMap[decision]||confMap.refer_ta;
+  const confidence=Number.isFinite(Number(output?.confidence)) ? `${Math.round(Number(output.confidence)*100)}%` : '—';
+  const sourceLabel=sourceIds.length ? sourceIds.join(', ') : '0 nguồn chính thức';
+  const line=s=>esc(s).replace(/\r?\n/g,'<br>');
+  const html=`<p>${line(output?.answer||'Chưa có câu trả lời.')}</p>
+    <p><b>Lý do:</b> ${line(output?.reason||'Quyết định bị giới hạn bởi nguồn và phạm vi quyền.')}</p>
+    <p><b>Bước kế:</b> ${line(output?.next_step||'Hỏi TA nếu vẫn chưa rõ.')}</p>`;
+  const draft=output?.needs_ta ? {to:'TA trực · #hỏi-trợ-lý',body:`Câu hỏi của học viên: ${input}\n\nLý do chuyển TA: ${output.reason}\n\nNháp này chưa được gửi tự động.`} : null;
+  return {
+    user:input,
+    glass:[
+      `${esc(output?.intent||'daily standup logistics')} · <b>${esc(decision)}</b>`,
+      `retrieval · <b>${esc(sourceLabel)}</b>`,
+      `${esc(conf[1])} · confidence <b>${confidence}</b>`,
+      output?.needs_ta ? '<b>soạn nháp cho TA</b> · người dùng tự quyết định' : '<b>trả lời trực tiếp</b> · không có hành động ngoài'
+    ],
+    conf,
+    html,
+    srcs:sourceIds,
+    draft
+  };
+}
+
+function addAiFailure(message, input){
+  const d=document.createElement('div'); d.className='msg bot';
+  d.innerHTML=`<div class="av b">🤖</div><div style="min-width:0;flex:1"><div class="who">Trợ lý <span class="tag">BOT</span><span class="ts">${clock()}</span></div><div class="body"><span class="conf no">AI chưa trả lời</span><p>${esc(message)}</p><div class="acts"><button class="btn primary" data-retry>Thử lại</button></div></div></div>`;
+  d.querySelector('[data-retry]').onclick=()=>sendReal(input,'retry');
+  feed.appendChild(d); feed.scrollTop=feed.scrollHeight;
+}
+
+async function sendReal(input, caseId='live'){
+  const text=String(input||'').trim(); if(!text) return;
+  const seq=++requestSequence;
   turn++;
-  addUser(sc.user);
-  setTimeout(()=>{ glass(sc.glass); addBot(sc, sc.id); }, 260);
+  const historyForRequest=conversationHistory.slice(-8);
+  conversationHistory.push({role:'user',content:text});
+  conversationHistory=conversationHistory.slice(-8);
+  addUser(text);
+  updateHistoryCount();
+  setAiStatus('đang gọi backend và giữ lịch sử gần nhất…','warn');
+  document.getElementById('send').disabled=true;
+  document.querySelectorAll('.chip').forEach(button=>button.disabled=true);
+  try{
+    if(window.location.protocol==='file:') throw new Error('Hãy mở qua http://localhost:8787/ để gọi AI thật.');
+    const res=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({case_id:caseId,input:text,history:historyForRequest})});
+    const body=await res.json();
+    if(!res.ok) throw new Error(body?.error||`HTTP ${res.status}: backend error`);
+    if(seq!==requestSequence) return;
+    const output=body.output;
+    conversationHistory.push({role:'assistant',content:`${output.answer}\nLý do: ${output.reason}\nBước kế: ${output.next_step}`});
+    conversationHistory=conversationHistory.slice(-8);
+    const cfg=outputToConfig(output,text);
+    glass(cfg.glass);
+    addBot(cfg, caseId.startsWith('s')?caseId:null, text);
+    setAiStatus(`đã trả lời · ${body.latency_ms||'—'} ms · ${body.retrieved_source_ids?.join(', ')||'0 nguồn'}`,'');
+    updateHistoryCount();
+  }catch(error){
+    if(seq!==requestSequence) return;
+    addAiFailure(error?.message||String(error),text);
+    setAiStatus(error?.message||'backend chưa sẵn sàng','bad');
+  }finally{
+    if(seq===requestSequence){
+      document.getElementById('send').disabled=false;
+      document.querySelectorAll('.chip').forEach(button=>button.disabled=false);
+    }
+  }
+}
+
+function run(sc){
+  if(!sc) return;
+  sendReal(sc.user,sc.id);
   const btn=chipsEl.querySelector(`[data-sc="${sc.id}"]`); if(btn) btn.classList.add('done');
 }
 
 /* chips */
-chipsEl.innerHTML = SC.map(s=>`<button class="chip" data-sc="${s.id}">${esc(s.chip)}</button>`).join('');
+chipsEl.innerHTML = SC.map(s=>`<button class="chip" data-sc="${s.id}">${s.demo?`<span class="chip-demo-tag demo-tag">${esc(s.demo)}</span> `:''}${esc(s.chip)}</button>`).join('');
 chipsEl.onclick = e=>{ const b=e.target.closest('[data-sc]'); if(b) run(SC.find(s=>s.id===b.dataset.sc)); };
+document.getElementById('presenterDetails').addEventListener('toggle', e=>document.body.classList.toggle('presenter',e.target.open));
 
 /* free input */
 function freeSend(){
   const inp=document.getElementById('inp');
   const v=inp.value.trim(); if(!v) return;
   inp.value='';
-  const t=v.toLowerCase();
-  let hit=null;
-  if(/điểm danh|diem danh|xp của tôi|xp cua toi/.test(t)) hit=SC[3];
-  else if(/bỏ qua mọi|admin|gia hạn|tag \[@role\]/.test(t)) hit=SC[5];
-  else if(/lab\s*2|blocker/.test(t)) hit=SC[4];
-  else if(/ai nộp|cả nhóm|mỗi người|thành viên nào/.test(t)) hit=SC[2];
-  else if(/hạn|deadline|mấy giờ|khi nào|bao giờ/.test(t)) hit=SC[1];
-  else if(/ở đâu|nộp|lệnh|cú pháp|command/.test(t)) hit=SC[0];
-  if(hit){ turn++; addUser(v); setTimeout(()=>{glass(hit.glass); addBot(hit, hit.id);},260);
-    const b=chipsEl.querySelector(`[data-sc="${hit.id}"]`); if(b) b.classList.add('done'); return; }
-  turn++; addUser(v);
-  setTimeout(()=>{
-    glass(['không khớp kịch bản nào <span class="tiny m">mock</span>','—','—','<b>nói thẳng giới hạn của bản mẫu</b>']);
-    addBot({conf:['blk','ngoài phạm vi bản mẫu CP2'],
-      html:`<p>Bản mẫu CP2 mới dựng <b>6 kịch bản</b> quanh <code>daily standup</code>, câu này chưa nằm trong đó nên mình <b>không giả vờ trả lời</b>.</p>
-            <p>Bấm một trong các câu gợi ý ngay dưới ô nhập để xem luồng chạy.</p>`, srcs:[]}, null);
-  },240);
+  sendReal(v,'free');
 }
 document.getElementById('send').onclick=freeSend;
 document.getElementById('inp').addEventListener('keydown',e=>{if(e.key==='Enter')freeSend();});
@@ -598,8 +858,13 @@ document.getElementById('haxtgl').onchange=e=>{
 
 /* reset */
 document.getElementById('reset').onclick=()=>{
-  feed.innerHTML=''; turn=0;
+  requestSequence++;
+  conversationHistory=[]; updateHistoryCount(); turn=0;
+  feed.innerHTML='';
   chipsEl.querySelectorAll('.chip').forEach(c=>c.classList.remove('done'));
+  document.getElementById('send').disabled=false;
+  chipsEl.querySelectorAll('.chip').forEach(button=>button.disabled=false);
+  setAiStatus('đang chờ local backend','');
   boot();
 };
 
@@ -612,6 +877,7 @@ function boot(){
   glass(['<em>chưa có lượt nào</em>','<em>—</em>','<em>—</em>','<em>—</em>']);
 }
 ledger(); boot();
+if(window.location.protocol==='file:') setAiStatus('mở qua http://localhost:8787/ để gọi AI thật','warn');
 </script>
 </body>
 </html>

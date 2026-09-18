@@ -1,0 +1,116 @@
+{
+  "schema": "discord-assistant-source-catalog-v2",
+  "version": "2026-09-18",
+  "scope": "Track B1 — logistics for daily standup and support routing",
+  "authority_policy": "Only cards in this list may ground an answer. Bot replies from the raw pack are observations, not authority.",
+  "cards": [
+    {
+      "id": "SRC-01",
+      "kind": "official_handbook",
+      "title": "Sổ tay học viên — Daily Standup",
+      "facts": "Dùng /daily-standup trong forum thread riêng của team. Form có yesterday (việc đã làm hôm qua), today (việc dự định làm hôm nay) và blockers (khó khăn, tuỳ chọn). Có thể viết ngắn gọn theo cấu trúc: Yesterday: ...; Today: ...; Blockers: Không có hoặc nêu vướng mắc. Đây là mẫu minh hoạ cấu trúc, không phải nội dung bắt buộc. Pack không có căn cứ chính thức để kết luận một người đại diện hay từng thành viên phải nộp, nên bot không được tự suy diễn phần này.",
+      "coverage": ["where_to_submit", "command", "field_meaning", "writing_example", "blocker"],
+      "provenance": {
+        "official_message_ids": ["M76498"],
+        "supporting_human_message_ids": ["M60122", "M30047", "M01069", "M72480"],
+        "baseline_bot_message_ids": ["M96777", "M33078", "M24307", "M18869", "M57288", "M81762", "M84392", "M58032"],
+        "note": "M76498 points to the internal handbook. The supporting bot messages are retained only to cover the wording users actually encounter; they are not treated as independent authority."
+      }
+    },
+    {
+      "id": "SRC-02",
+      "kind": "official_announcement",
+      "title": "Khung giờ cộng XP cho daily standup",
+      "facts": "Nộp từ 0h đến 10h sáng để được cộng XP. Nộp trễ vẫn được ghi nhận nhưng không được cộng XP. Đây là khung cộng XP, không phải bằng chứng cho điểm danh lớp học offline và không tự xác nhận một deadline khác.",
+      "coverage": ["xp_window", "late_submission", "attendance_boundary"],
+      "provenance": {
+        "official_message_ids": ["M78917"],
+        "supporting_human_message_ids": ["M22827", "M27434"],
+        "baseline_bot_message_ids": ["M91153", "M02304", "M18869"],
+        "note": "M78917 is the direct announcement used for the 0h–10h rule; M22827 records the start date in the onboarding snapshot."
+      }
+    },
+    {
+      "id": "SRC-03",
+      "kind": "command_description",
+      "title": "Mô tả lệnh /daily-standup — cần xác minh mốc",
+      "facts": "Một mô tả lệnh ghi mốc là hết hôm nay nhưng không có ngày cập nhật hoặc ngữ cảnh cụ thể. Card này chỉ dùng để phát hiện mâu thuẫn khi người dùng hỏi deadline; không được dùng để khẳng định một deadline tuyệt đối. Khi câu hỏi không nói rõ mục tiêu, phải hỏi người dùng đang cần mốc được cộng XP hay mốc ghi nhận báo cáo.",
+      "coverage": ["deadline_ambiguity", "clarification"],
+      "provenance": {
+        "official_message_ids": [],
+        "observed_command_message_ids": ["M84392"],
+        "baseline_bot_message_ids": ["M84392", "M26547"],
+        "note": "This is intentionally a caution card, not a deadline source. It prevents the old bot answer from converting an un dated command description into a hard rule."
+      }
+    },
+    {
+      "id": "SRC-04",
+      "kind": "official_onboarding",
+      "title": "Thông báo onboarding và đường hỗ trợ",
+      "facts": "Thông báo onboarding hướng dẫn hoàn thiện hồ sơ, xác minh Discord và lập đội. Khi gặp vấn đề trong onboarding, người học được hướng dẫn tạo ticket. Thông báo này không quy định ai phải nộp daily standup thay ai.",
+      "coverage": ["onboarding", "support_routing", "submission_authority_boundary"],
+      "provenance": {
+        "official_message_ids": ["M49744", "M41530"],
+        "supporting_human_message_ids": ["M78683", "M94804", "M64308"],
+        "baseline_bot_message_ids": ["M33078", "M79766"],
+        "note": "The raw pack contains the onboarding announcements and ticket guidance, but no authoritative rule for individual-versus-team submission."
+      }
+    },
+    {
+      "id": "SRC-05",
+      "kind": "official_support_route",
+      "title": "Cách tạo ticket hỗ trợ",
+      "facts": "Để yêu cầu BTC/Mod hỗ trợ vấn đề về onboarding hoặc quyền/kênh, dùng command /ticket create theo thông báo onboarding. Bot chỉ hướng dẫn soạn lệnh; bot không tự tạo ticket, không mở quyền và không gửi tin thay người dùng.",
+      "coverage": ["ticket", "permission_issue", "support_route"],
+      "provenance": {
+        "official_message_ids": ["M49744", "M41530"],
+        "supporting_human_message_ids": ["M78683", "M94804", "M64308"],
+        "baseline_bot_message_ids": ["M61098", "M41310"],
+        "note": "This card is intentionally procedural: it gives the next action without claiming the bot performed it."
+      }
+    },
+    {
+      "id": "SRC-06",
+      "kind": "official_announcement_snapshot",
+      "title": "Mốc bắt đầu ghi nhận XP trong pack",
+      "facts": "Trong snapshot onboarding của pack, ngày bắt đầu ghi nhận XP cho daily standup được trả lời là 14/9. Đây là mốc lịch sử của dữ liệu 12–14/09, không được trình bày như chính sách hiện hành nếu người dùng hỏi ngoài snapshot; khi cần mốc hiện tại phải xác minh với TA/Mod.",
+      "coverage": ["xp_start_date", "time_sensitive_fact"],
+      "provenance": {
+        "official_message_ids": ["M22827"],
+        "supporting_human_message_ids": ["M55571"],
+        "baseline_bot_message_ids": ["M49945", "M88727", "M89758"],
+        "note": "The date is explicitly scoped to the supplied pack so the assistant does not leak a stale onboarding date into a live answer."
+      }
+    }
+  ],
+  "baseline_pitfalls": [
+    {
+      "pattern": "Bot claims every member must submit or that no tag is needed",
+      "message_ids": ["M87577", "M01639", "M17171", "M92424"],
+      "handling": "Never cite as authority; refer the individual-versus-team question to TA/Mod."
+    },
+    {
+      "pattern": "Bot turns a command description into a universal 23:59 deadline",
+      "message_ids": ["M45680", "M26547"],
+      "handling": "Keep SRC-02 and SRC-03 separate and ask which deadline the user means."
+    },
+    {
+      "pattern": "Bot returns a generic no-source apology for a writing/example question",
+      "message_ids": ["M61098", "M41310"],
+      "handling": "Use SRC-01 to answer with the three-field illustrative template, while labeling it as a reference."
+    },
+    {
+      "pattern": "Bot invents channel names, team IDs, or performs an external action",
+      "message_ids": ["M79766", "M84392", "M92424"],
+      "handling": "Use only the verified forum-thread wording and state that the bot cannot send, tag, or change permissions."
+    }
+  ],
+  "mining_queries": [
+    {"message_id": "M60122", "query": "daily-standup này làm ở đâu vậy nhỉ, làm thế nào"},
+    {"message_id": "M54695", "query": "gì vào biến yesterday and today của Daily-standup"},
+    {"message_id": "M91027", "query": "viết /daily-standup ở nhóm nào hay kênh nào nhỉ"},
+    {"message_id": "M80778", "query": "ngày nào cũng gửi /daily-standup hả, trước 23h59 ngày đó phải không"},
+    {"message_id": "M65205", "query": "nộp ở đâu cơ, phần này mình đánh lệnh /daily-standup rồi mà ko được"},
+    {"message_id": "M04103", "query": "cách tạo ticket"}
+  ]
+}

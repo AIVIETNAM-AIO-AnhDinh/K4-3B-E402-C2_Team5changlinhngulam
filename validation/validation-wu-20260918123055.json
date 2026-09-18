@@ -1,0 +1,14 @@
+{
+  "schema": "cp5-willing-user-feedback-v1",
+  "session_id": "wu-20260918123055",
+  "task": "Tự tìm cách nộp daily standup đúng hạn",
+  "duration_seconds": 325,
+  "outcome": "blocked",
+  "trust": "partial",
+  "disappointment": "very",
+  "quote_or_pain": "Không nhận được câu trả lời cho ví dụ viết daily standup, trong khi bot vừa có hướng dẫn đầy đủ các trường cần gì.",
+  "turns": 2,
+  "contains_personal_data": false,
+  "consent_to_save": true,
+  "captured_at": "2026-09-18T12:37:31.370Z"
+}

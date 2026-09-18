@@ -7,11 +7,13 @@ Tin nhắn thật từ hai server Discord của khoá 4 ("Cộng đồng K4 · L
 | `k4_messages.csv` | 1.092 tin nhắn (779 của người, 313 của bot), 202 tác giả đã mã hoá, giữ cấu trúc reply |
 | `k4_daily_reports.md` | 4 bản tin "Học viên đang hỏi gì" bot đã đăng — tính năng đang chạy thật, có lỗi thật |
 | `DATA_DICTIONARY.md` | mô tả từng cột, các nhãn ẩn danh, giới hạn dữ liệu |
+| `daily-standup-source-cards.json` | catalog nguồn runtime đã phân loại: 6 source card có provenance, phạm vi trả lời, câu hỏi mining và các mẫu lỗi bot không được dùng làm nguồn |
 
 ## Dữ liệu này dùng để làm gì
 
 - **Mining pain point:** học viên tuần đầu hỏi gì, hỏi lặp bao nhiêu lần, câu nào không ai trả lời, bot trả lời sai/thừa chỗ nào. Đếm được (chuẩn B trong guide: số đếm + ≥5 ví dụ nguyên văn + cách đếm kiểm lại được).
 - **Golden set cho hướng B:** câu hỏi thật của học viên → kỳ vọng trả lời/chuyển TA. Bot hiện có (`is_bot = True`) là baseline để so.
+- **Catalog nguồn cho bot:** `daily-standup-source-cards.json` là lớp đã chuẩn hoá giữa raw pack và runtime. Tin người/Mod dùng làm provenance; tin bot chỉ được ghi trong `baseline_pitfalls` để bắt lỗi, không được tự xác nhận chính mình.
 - **Baseline tính năng "bản tin cuối ngày":** `k4_daily_reports.md` là sản phẩm đang chạy. Tìm lỗi của nó (ví dụ chuỗi "nguồn tham chiếu" chèn sai chỗ, câu hỏi bị bỏ sót, nhóm câu chưa hợp lý) là evidence hợp lệ.
 - **Không thay thế quan sát trực tiếp:** pack chỉ có 3 ngày và chỉ kênh public. Nhóm vẫn nên quan sát Discord khoá mình để bổ sung evidence mới; khảo sát bạn cùng lớp để xác nhận pain.
 

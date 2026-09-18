@@ -12,7 +12,7 @@
       "id": "SRC-01",
       "kind": "official_handbook",
       "title": "Sổ tay học viên — Daily Standup",
-      "facts": "Dùng /daily-standup trong forum thread riêng của team. Form có yesterday, today và blockers; blockers là tuỳ chọn."
+      "facts": "Dùng /daily-standup trong forum thread riêng của team. Form có yesterday (việc đã làm hôm qua), today (việc dự định làm hôm nay) và blockers (khó khăn, tuỳ chọn). Có thể viết ngắn gọn theo cấu trúc: Yesterday: ...; Today: ...; Blockers: Không có hoặc nêu vướng mắc. Đây là mẫu minh hoạ cấu trúc, không phải nội dung bắt buộc."
     },
     {
       "id": "SRC-02",
