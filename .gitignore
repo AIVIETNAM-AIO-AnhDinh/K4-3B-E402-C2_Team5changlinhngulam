@@ -1,0 +1,10 @@
+# Runtime credentials and local traces
+.env
+.env.*
+!.env.example
+eval/results-*.json
+eval/*.trace.json
+
+# Local browser/runtime files
+*.log
+node_modules/
