@@ -13,7 +13,7 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const fixturePath = path.join(root, 'eval', 'golden-set.json');
 const fixture = JSON.parse(await fs.readFile(fixturePath, 'utf8'));
-const sourceCatalog = JSON.parse(await fs.readFile(path.join(root, 'data', 'daily-standup-source-cards.json'), 'utf8'));
+const sourceCatalog = JSON.parse(await fs.readFile(path.join(root, 'eval', 'daily-standup-source-cards.json'), 'utf8'));
 const sourceCards = sourceCatalog.cards;
 await loadLocalEnv(root);
 const args = new Map();

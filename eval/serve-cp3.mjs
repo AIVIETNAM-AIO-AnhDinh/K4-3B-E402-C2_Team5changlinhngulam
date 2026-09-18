@@ -14,7 +14,7 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const codebase = path.join(root, 'codebase');
 const fixture = JSON.parse(await fs.readFile(path.join(root, 'eval', 'golden-set.json'), 'utf8'));
-const sourceCatalog = JSON.parse(await fs.readFile(path.join(root, 'data', 'daily-standup-source-cards.json'), 'utf8'));
+const sourceCatalog = JSON.parse(await fs.readFile(path.join(root, 'eval', 'daily-standup-source-cards.json'), 'utf8'));
 await loadLocalEnv(root);
 const apiKey = process.env.OPENAI_API_KEY;
 const portArg = process.argv.indexOf('--port');
