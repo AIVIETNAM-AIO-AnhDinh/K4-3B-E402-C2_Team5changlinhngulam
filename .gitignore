@@ -4,6 +4,7 @@
 !.env.example
 eval/results-*.json
 eval/*.trace.json
+eval/.env
 
 # Local browser/runtime files
 *.log
